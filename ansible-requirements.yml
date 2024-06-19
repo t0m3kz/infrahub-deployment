@@ -1,7 +1,0 @@
-collections:
-  - name: opsmill.infrahub
-    version: 1.0.8
-  - name: ansible.utils
-  - name: ansible.netcommon
-  - name: arista.avd
-    version: 4.4.0
