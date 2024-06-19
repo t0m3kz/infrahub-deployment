@@ -31,9 +31,3 @@ artifact_definitions:
     content_type: "text/plain"
     targets: "firewall_devices"
     transformation: "firewall_config"
-
-
-python_transforms:
-  - name: OCInterfaces
-    class_name: OCInterfaces
-    file_path: "transforms/openconfig.py"
