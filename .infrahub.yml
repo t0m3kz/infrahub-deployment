@@ -1,24 +1,4 @@
 ---
-jinja2_transforms:
-  - name: "device_cisco"
-    description: "Template to generate startup configuration for Cisco devices"
-    query: "device_info"
-    template_path: "templates/device_cisco_config.tpl.j2"
-
-  - name: "device_arista"
-    description: "Template to generate startup configuration for Arista devices"
-    query: "device_info"
-    template_path: "templates/device_arista_config.tpl.j2"
-
-  - name: "firewall_config"
-    description: "Template to generate startup configuration for a Juniper SRX Firewall"
-    query: "juniper_srx_config"
-    template_path: "templates/juniper_srx_config.j2"
-
-  - name: "clab_topology"
-    query: "topology_info"
-    template_path: "topology/clab_topology.j2"
-
 artifact_definitions:
   - name: "Openconfig Interface for Arista devices"
     artifact_name: "openconfig-interfaces"
@@ -52,18 +32,6 @@ artifact_definitions:
     targets: "firewall_devices"
     transformation: "firewall_config"
 
-  - name: "Containerlab Topology"
-    artifact_name: "containerlab-topology"
-    parameters:
-      topology_name: "name__value"
-    content_type: "text/plain"
-    targets: "all_topologies"
-    transformation: "clab_topology"
-
-check_definitions:
-  - name: "check_device_topology"
-    class_name: "InfrahubCheckDeviceTopology"
-    file_path: "checks/check_device_topology.py"
 
 python_transforms:
   - name: OCInterfaces
