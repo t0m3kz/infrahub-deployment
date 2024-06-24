@@ -60,12 +60,12 @@ generics:
 
 nodes:
   # --------------------  Locations  --------------------
-  - name: Continent
+  - name: Region
     namespace: Location
     inherit_from: ["LocationGeneric"]
     include_in_menu: true
     menu_placement: "LocationGeneric"
-    label: Continent
+    label: Region
     display_labels:
       - name__value
     parent: ""
@@ -79,41 +79,30 @@ nodes:
     label: Country
     display_labels:
       - name__value
-    parent: "LocationContinent"
-    children: "LocationRegion"
+    parent: "LocationRegion"
+    children: "LocationCity"
     icon: "gis:search-country"
-  - name: Region
+  - name: City
     namespace: Location
     inherit_from: ["LocationGeneric"]
     include_in_menu: true
     menu_placement: "LocationGeneric"
-    label: Region
+    label: City
     display_labels:
       - name__value
     parent: "LocationCountry"
-    children: "LocationMetro"
-    icon: "carbon:cics-region-target"
-  - name: Metro
-    namespace: Location
-    inherit_from: ["LocationGeneric"]
-    include_in_menu: true
-    menu_placement: "LocationGeneric"
-    label: Metro
-    display_labels:
-      - name__value
-    parent: "LocationRegion"
-    children: "LocationBuilding"
+    children: "LocationSite"
     icon: "healthicons:city"
-  - name: Building
+  - name: Site
     namespace: Location
     inherit_from: ["LocationGeneric"]
     include_in_menu: true
     menu_placement: "LocationGeneric"
-    label: Building
+    label: Site
     display_labels:
       - name__value
-    parent: "LocationMetro"
-    children: "LocationFloor"
+    parent: "LocationCity"
+    children: "LocationRoom"
     icon: "ri:building-line"
     attributes:
       - name: facility_id
@@ -131,26 +120,15 @@ nodes:
         peer: OrganizationGeneric
         optional: true
         cardinality: one
-  - name: Floor
+  - name: Room
     namespace: Location
     inherit_from: ["LocationGeneric"]
     include_in_menu: true
     menu_placement: "LocationGeneric"
-    label: Floor
+    label: Room
     display_labels:
       - name__value
-    parent: "LocationBuilding"
-    icon: "mdi:home-floor-0"
-    children: "LocationSuite"
-  - name: Suite
-    namespace: Location
-    inherit_from: ["LocationGeneric"]
-    include_in_menu: true
-    menu_placement: "LocationGeneric"
-    label: Suite
-    display_labels:
-      - name__value
-    parent: "LocationFloor"
+    parent: "LocationSite"
     children: "LocationRack"
     icon: "game-icons:cage"
     attributes:
@@ -173,7 +151,7 @@ nodes:
     display_labels:
       - name__value
     menu_placement: "LocationGeneric"
-    parent: "LocationSuite"
+    parent: "LocationRoom"
     children: ""
     icon: "clarity:rack-server-line"
     attributes:

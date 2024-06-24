@@ -75,7 +75,7 @@ nodes:
         peer: InfraCircuit
         cardinality: many
         optional: true
-  - name: Tenant
+  - name: Customer
     namespace: Organization
     description: Customer
     default_filter: name__value

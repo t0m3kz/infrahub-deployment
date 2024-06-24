@@ -12,14 +12,12 @@ ACCOUNTS = (
     ("pop-builder", "Script", "Password123", "read-write"),
     ("generator", "Script", "Password123", "read-write"),
     ("CRM Synchronization", "Script", "Password123", "read-write"),
-    ("Jack Bauer", "User", "Password123", "read-only"),
+    ("Asim Mohamed", "User", "Password123", "read-only"),
     ("Chloe O'Brian", "User", "Password123", "read-write"),
     ("David Palmer", "User", "Password123", "read-write"),
     ("Operation Team", "User", "Password123", "read-only"),
     ("Engineering Team", "User", "Password123", "read-write"),
     ("Architecture Team", "User", "Password123", "read-only"),
-    ("netbox", "Script", "Password123", "read-write"),
-    ("nautobot", "Script", "Password123", "read-write"),
 )
 
 TAGS = ["blue", "green", "red"]
@@ -78,7 +76,7 @@ VRF = {
     ("Backbone", "Backbone VRF", "101", "101:101", "101:101"),
     ("Management", "OOBA Management VRF", "199", "199:199", "199:199"),
     ("Production", "Production VRF", "200", "200:200", "200:200"),
-    ("Staging", "Staging VRF", "201", "201:201", "201:201"),
+    ("Test", "Staging VRF", "201", "201:201", "201:201"),
     ("Development", "Development VRF", "202", "202:202", "202:202"),
     ("DMZ", "DMZ VRF", "666", "666:666", "666:666"),
 }
@@ -98,7 +96,7 @@ PLATFORMS = (
     # name, nornir_platform, napalm_driver, netmiko_device_type, ansible_network_os, containerlab_os
     ("Cisco IOS-XE", "ios", "ios", "cisco_ios", "ios", "ios"),
     ("Cisco IOS-XR", "iosxr", "iosxr", "cisco_xr", "cisco.iosxr.iosxr", "cisco_xrv"),
-    ("Cisco NXOS SSH", "nxos_ssh", "nxos_ssh", "cisco_nxos", "nxos", "cisco_n9kv"),
+    ("Cisco NXOS", "nxos_ssh", "nxos_ssh", "cisco_nxos", "nxos", "cisco_n9kv"),
     ("Juniper JunOS", "junos", "junos", "juniper_junos", "junos", "juniper_vjunosswitch"),
     ("Arista EOS", "eos", "eos", "arista_eos", "eos", "ceos"),
     ("Linux", "linux", "linux", "linux", "linux", "linux")
