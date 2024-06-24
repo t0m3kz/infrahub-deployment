@@ -74,6 +74,12 @@ nodes:
         optional: true
         cardinality: many
         kind: Component
+      - name: bgp_sessions
+        label: "BGP Sessions"
+        peer: InfraBGPSession
+        optional: true
+        cardinality: many
+        kind: Component
   - name: CircuitType
     namespace: Infra
     description: "A type of Circuit"
