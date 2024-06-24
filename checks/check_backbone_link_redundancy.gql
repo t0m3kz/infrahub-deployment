@@ -15,7 +15,7 @@ query check_backbone_link_redundancy {
         endpoints {
           edges {
             node {
-              site {
+              location {
                 node {
                   id
                   name {
