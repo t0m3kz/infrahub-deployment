@@ -298,7 +298,7 @@ nodes:
     label: "Dhcp Server"
     icon: "eos-icons:ip"
     menu_placement: "NetworkManagementServer"
-    include_in_menu: false
+    include_in_menu: true
     default_filter: name__value
     display_labels: [name__value]
     order_by: [name__value]
@@ -330,6 +330,17 @@ nodes:
     description: "Represents a NTP server in the network."
     label: "NTP Server"
     icon: "iconoir:time-zone"
+    menu_placement: "NetworkManagementServer"
+    default_filter: name__value
+    display_labels: [name__value]
+    order_by: [name__value]
+    inherit_from:
+      - NetworkManagementServer
+  - name: PrometheusServer
+    namespace: Network
+    description: "Represents a Prometheus server in the network."
+    label: "Prometheus Server"
+    icon: "jam:world"
     menu_placement: "NetworkManagementServer"
     default_filter: name__value
     display_labels: [name__value]

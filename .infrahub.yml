@@ -25,14 +25,6 @@ jinja2_transforms:
     template_path: "templates/juniper_srx_config.j2"
 
 artifact_definitions:
-  - name: "Openconfig Interface for Arista devices"
-    artifact_name: "openconfig-interfaces"
-    parameters:
-      device: "name__value"
-    content_type: "application/json"
-    targets: "arista_devices"
-    transformation: "OCInterfaces"
-
   - name: "Startup Config for Cisco devices"
     artifact_name: "startup-config"
     parameters:
@@ -57,7 +49,7 @@ artifact_definitions:
     targets: "firewall_devices"
     transformation: "firewall_config"
 
-python_transforms:
-  - name: OCInterfaces
-    class_name: OCInterfaces
-    file_path: "transforms/openconfig.py"
+check_definitions:
+  - name: "check_device_topology"
+    class_name: "InfrahubCheckDeviceTopology"
+    file_path: "checks/check_device_topology.py"

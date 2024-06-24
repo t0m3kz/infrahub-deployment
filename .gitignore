@@ -10,3 +10,8 @@ playbooks/intended
 .envrc
 .env
 pyrightconfig.json
+.venv
+.devcontainer
+docker-compose.yml
+poetry*
+pyproject*
