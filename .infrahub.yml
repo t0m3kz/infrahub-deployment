@@ -19,10 +19,10 @@ jinja2_transforms:
     query: "device_info"
     template_path: "templates/device_arista_config.tpl.j2"
 
-  - name: "firewall_config"
-    description: "Template to generate startup configuration for a Juniper SRX Firewall"
-    query: "juniper_srx_config"
-    template_path: "templates/juniper_srx_config.j2"
+  # - name: "firewall_config"
+  #   description: "Template to generate startup configuration for a Juniper SRX Firewall"
+  #   query: "juniper_srx_config"
+  #   template_path: "templates/juniper_srx_config.j2"
 
 artifact_definitions:
   - name: "Startup Config for Cisco devices"
