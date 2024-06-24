@@ -426,7 +426,7 @@ async def create_location_hierarchy(client: InfrahubClient, log: logging.Logger,
                             log=log,
                             branch=branch,
                             object_name=building_name,
-                            kind_name="LocationBuilding",
+                            kind_name="LocationSite",
                             data=data,
                             store=store,
                             retrieved_on_failure=True
@@ -570,7 +570,7 @@ async def create_location(client: InfrahubClient, log: logging.Logger, branch: s
         # --------------------------------------------------
         # Create VLANs
         # --------------------------------------------------
-        location_obj = store.get(key=location_name, kind="LocationBuilding")
+        location_obj = store.get(key=location_name, kind="LocationSite")
         batch = await client.create_batch()
         location_id = location_obj.id
         for vlan in VLANS:

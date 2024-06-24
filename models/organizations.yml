@@ -68,7 +68,7 @@ nodes:
     menu_placement: OrganizationGeneric
     relationships:
       - name: location
-        peer: LocationBuilding
+        peer: LocationSite
         cardinality: many
         optional: true
       - name: circuit
@@ -89,7 +89,7 @@ nodes:
     menu_placement: OrganizationGeneric
     relationships:
       - name: location
-        peer: LocationBuilding
+        peer: LocationSite
         cardinality: many
         optional: true
       - name: circuit

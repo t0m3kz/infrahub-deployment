@@ -78,7 +78,7 @@ query device_info($device: String!) {
             timezone {
               value
             }
-            ... on LocationBuilding {
+            ... on LocationSite {
               ancestors {
                 edges {
                   node {
