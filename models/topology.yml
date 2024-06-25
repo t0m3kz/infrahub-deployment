@@ -132,7 +132,7 @@ nodes:
         cardinality: one
         kind: Component
       - name: location
-        peer: LocationGeneric
+        peer: LocationSite
         optional: true
         cardinality: one
         kind: Attribute
