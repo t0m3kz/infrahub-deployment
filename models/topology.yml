@@ -39,7 +39,7 @@ generics:
             color: "#bfbfbf"
     relationships:
       - name: location
-        peer: LocationGeneric
+        peer: LocationSite
         optional: true
         cardinality: many
       - name: ip_addresses
