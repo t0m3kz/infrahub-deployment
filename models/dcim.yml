@@ -365,6 +365,10 @@ nodes:
             label: Leaf Switch
             description: "Top of Rack part of a Fabric."
             color: "#e6e6fa"
+          - name: oob
+            label: OOB Switch
+            description: "Out-of-band Switch."
+            color: "#e6e6fc"
         order_weight: 1400
   - name: InterfaceL3
     namespace: Infra
@@ -423,3 +427,79 @@ nodes:
         cardinality: many
         kind: Component
         identifier: interface_l2__tagged_vlan
+  - name: ConsoleServer
+    label: "Console Server"
+    menu_placement: "InfraGenericDevice"
+    icon: clarity:network-switch-solid
+    namespace: Infra
+    include_in_menu: true
+    display_labels:
+      - name__value
+    inherit_from:
+      - "CoreArtifactTarget"
+      - "InfraGenericDevice"
+    relationships:
+      - name: consoles
+        peer: InfraConsoleServerPort
+        optional: true
+        cardinality: many
+  - name: ConsoleServerPort
+    label: "Console Server Port"
+    namespace: Infra
+    menu_placement: "InfraGenericDevice"
+    include_in_menu: true
+    display_labels:
+      - name__value
+    order_by:
+      - device__name__value
+      - name__value
+    uniqueness_constraints:
+        - [ "device", "name__value"]
+    attributes:
+      - name: name
+        kind: Text
+        order_weight: 1000
+      - name: description
+        kind: Text
+        optional: true
+        order_weight: 1100
+      - name: speed
+        kind: Number
+        order_weight: 1400
+      - name: port
+        label: port
+        default_value: 1500
+        kind: Number
+        order_weight: 1500
+      - name: status
+        kind: Dropdown
+        optional: true
+        choices:
+          - name: active
+            label: Active
+            description: "Fully operational and currently in service."
+            color: "#7fbf7f"
+          - name: provisioning
+            label: Provisioning
+            description: "In the process of being set up and configured."
+            color: "#ffff7f"
+          - name: maintenance
+            label: Maintenance
+            description: "Undergoing routine maintenance or repairs."
+            color: "#ffd27f"
+          - name: drained
+            label: Drained
+            description: "Temporarily taken out of service."
+            color: "#bfbfbf"
+        order_weight: 1300
+    relationships:
+      - name: device
+        peer: ConsoleServer
+        optional: false
+        cardinality: one
+        kind: Parent
+      - name: tags
+        peer: BuiltinTag
+        optional: true
+        cardinality: many
+        kind: Attribute

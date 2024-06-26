@@ -31,12 +31,32 @@ generics:
         optional: true
         order_weight: 1300
     relationships:
+      - name: prefixes
+        label: Prefixes
+        peer: InfraPrefix
+        cardinality: many
+        optional: true
+      - name: vlans
+        label: VLANs
+        peer: InfraVLAN
+        cardinality: many
+        optional: true
+      - name: devices
+        label: Devices
+        peer: InfraGenericDevice
+        cardinality: many
+        optional: true
+      - name: network_management_servers
+        label: "Network Management Servers"
+        peer: NetworkManagementServer
+        optional: true
+        cardinality: many
+        kind: Component
       - name: tags
         peer: BuiltinTag
         kind: Attribute
         optional: true
         cardinality: many
-
 nodes:
   # --------------------  Locations  --------------------
   - name: Region
@@ -99,32 +119,6 @@ nodes:
         peer: OrganizationGeneric
         optional: true
         cardinality: one
-      - name: prefixes
-        label: Prefixes
-        peer: InfraPrefix
-        cardinality: many
-        optional: true
-      - name: vlans
-        label: VLANs
-        peer: InfraVLAN
-        cardinality: many
-        optional: true
-      - name: devices
-        label: Devices
-        peer: InfraGenericDevice
-        cardinality: many
-        optional: true
-      - name: network_management_servers
-        label: "Network Management Servers"
-        peer: NetworkManagementServer
-        optional: true
-        cardinality: many
-        kind: Component
-      - name: circuit_endpoints
-        identifier: "site__circuit_endpoints"
-        cardinality: many
-        kind: Component
-        peer: InfraCircuitEndpoint
   - name: Room
     namespace: Location
     inherit_from: ["LocationGeneric"]
