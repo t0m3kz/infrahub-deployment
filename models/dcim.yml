@@ -448,6 +448,7 @@ nodes:
     namespace: Infra
     menu_placement: "InfraGenericDevice"
     include_in_menu: true
+    icon: "mdi:console"
     display_labels:
       - name__value
     order_by:
@@ -494,7 +495,7 @@ nodes:
         order_weight: 1300
     relationships:
       - name: device
-        peer: ConsoleServer
+        peer: InfraConsoleServer
         optional: false
         cardinality: one
         kind: Parent
