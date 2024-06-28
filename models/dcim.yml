@@ -202,9 +202,6 @@ generics:
         optional: true
         cardinality: many
         kind: Attribute
-      - name: security_zone
-        peer: SecurityZone
-        state: absent
 
 
   - name: Endpoint
@@ -398,7 +395,7 @@ nodes:
         kind: Component
       - name: security_zone
         peer: SecurityZone
-        optional: false
+        optional: true
         cardinality: one
         kind: Attribute
   - name: InterfaceL2
@@ -533,12 +530,6 @@ nodes:
             label: Edge firewall
             description: "Security boundary with external network"
             color: "#6a5acd"
-    relationships:
-      - name: policy
-        peer: SecurityPolicy
-        label: Security Policy
-        cardinality: one
-        kind: Attribute
   - name: Loadbalancer
     namespace: Infra
     inherit_from:
