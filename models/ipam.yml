@@ -24,7 +24,7 @@ nodes:
     description: "A VLAN is isolated layer two domain"
     label: "VLAN"
     icon: "mdi:lan-pending"
-    menu_placement: "TopologyNetworkService"
+    menu_placement: "TopologyService"
     default_filter: name__value
     order_by:
       - name__value

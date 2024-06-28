@@ -28,39 +28,22 @@ query device_info($device: String!) {
             network_services {
               edges {
                 node {
-                  name {
-                    value
-                  }
-                  service_type {
-                    value
-                  }
-                  vlan {
-                    node {
-                      name {
-                        value
-                      }
-                      role {
-                        value
-                      }
-                      vlan_id {
-                        value
-                      }
+                  ... on TopologyNetworkService {
+                    name {
+                      value
                     }
-                  }
-                  prefix {
-                    node {
-                      role {
-                        value
-                      }
-                      prefix {
-                        value
-                      }
-                      vrf {
-                        node {
-                          ... on InfraVRF {
-                            vrf_rd {value}
-                          }
+                    service_type {
+                      value
+                    }
+                    vlan {
+                      node {
+                        name {
+                          value
                         }
+                        role{value}
+                        vlan_id{value}
+
+
                       }
                     }
                   }

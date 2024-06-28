@@ -46,7 +46,7 @@ generics:
     relationships:
       - name: location
         label: Location
-        peer: LocationGeneric
+        peer: LocationSite
         optional: false
         cardinality: one
         kind: Attribute
@@ -503,4 +503,29 @@ nodes:
         peer: BuiltinTag
         optional: true
         cardinality: many
+        kind: Attribute
+  - name: Firewall
+    namespace: Security
+    inherit_from:
+      - InfraGenericDevice
+      - CoreArtifactTarget
+      - SecurityPolicyAssignment
+    icon: "mdi:firewall"
+    include_in_menu: true
+    default_filter: name__value
+    menu_placement: "InfraGenericDevice"
+    attributes:
+      - name: role
+        kind: Dropdown
+        optional: true
+        choices:
+          - name: edge_firewall
+            label: Edge firewall
+            description: "Security boundary with external network"
+            color: "#6a5acd"
+    relationships:
+      - name: policy
+        peer: SecurityPolicy
+        label: Security Policy
+        cardinality: one
         kind: Attribute

@@ -4,7 +4,7 @@ version: '1.0'
 generics:
   - name: ManagementServer
     namespace: Network
-    description: "Generic model for network management server (dns, ntp, and dhcp)."
+    description: "Generic model for network management server (dns, ntp, dhcp and collectors)."
     label: "Network Management Servers"
     default_filter: name__value
     display_labels: [name__value]
@@ -142,7 +142,7 @@ nodes:
         cardinality: many
         kind: Component
       - name: network_services
-        peer: TopologyNetworkService
+        peer: TopologyService
         optional: true
         cardinality: many
         kind: Component
@@ -347,70 +347,3 @@ nodes:
     order_by: [name__value]
     inherit_from:
       - NetworkManagementServer
-
-  # --------------------  Network Services --------------------
-  - name: NetworkServiceIdentifier
-    namespace: Topology
-    description: "Generic model for different types of identifiers used in network services."
-    label: Network Service Identifier
-    icon: "mdi:identifier"
-    menu_placement: "TopologyNetworkService"
-    default_filter: identifier__value
-    order_by:
-      - identifier__value
-    display_labels:
-      - identifier__value
-    attributes:
-      - name: identifier
-        kind: Number
-    relationships:
-      - name: service
-        label: Network Service
-        peer: TopologyNetworkService
-        cardinality: one
-        optional: true
-  - name: NetworkService
-    namespace: Topology
-    description: "Network services attached to a Topology."
-    label: Network Service
-    icon: "carbon:ibm-cloud-internet-services"
-    default_filter: name__value
-    order_by:
-      - name__value
-    display_labels:
-      - name__value
-    attributes:
-      - name: name
-        label: Service Name
-        kind: Text
-        order_weight: 1000
-      - name: description
-        kind: Text
-        order_weight: 1100
-      - name: service_type
-        kind: Text
-        enum: ["Layer2", "Layer3"]
-        order_weight: 1200
-    relationships:
-      - name: identifier
-        peer: TopologyNetworkServiceIdentifier
-        cardinality: one
-        kind: Attribute
-        optional: false
-      - name: topology
-        peer: TopologyTopology
-        cardinality: one
-        kind: Parent
-        optional: false
-      - name: vlan
-        peer: InfraVLAN
-        optional: true
-        cardinality: one
-        kind: Component
-        order_weight: 1500
-      - name: prefix
-        peer: InfraPrefix
-        optional: true
-        cardinality: one
-        kind: Component
-        order_weight: 1400
