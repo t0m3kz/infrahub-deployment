@@ -40,10 +40,31 @@ query device_info($device: String!) {
                         name {
                           value
                         }
-                        role{value}
-                        vlan_id{value}
-
-
+                        role {
+                          value
+                        }
+                        vlan_id {
+                          value
+                        }
+                      }
+                    }
+                    prefix {
+                      node {
+                        role {
+                          value
+                        }
+                        prefix {
+                          value
+                        }
+                        vrf {
+                          node {
+                            ... on InfraVRF {
+                              vrf_rd {
+                                value
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }

@@ -202,6 +202,11 @@ generics:
         optional: true
         cardinality: many
         kind: Attribute
+      - name: security_zone
+        peer: SecurityZone
+        state: absent
+
+
   - name: Endpoint
     namespace: Infra
     description: "Generic Endpoint to connect two objects together."
@@ -391,6 +396,11 @@ nodes:
         optional: true
         cardinality: many
         kind: Component
+      - name: security_zone
+        peer: SecurityZone
+        optional: false
+        cardinality: one
+        kind: Attribute
   - name: InterfaceL2
     namespace: Infra
     description: "Network Layer 2 Interface"
@@ -529,3 +539,25 @@ nodes:
         label: Security Policy
         cardinality: one
         kind: Attribute
+  - name: Loadbalancer
+    namespace: Infra
+    inherit_from:
+      - InfraGenericDevice
+      - CoreArtifactTarget
+    icon: "mdi:firewall"
+    include_in_menu: true
+    default_filter: name__value
+    menu_placement: "InfraGenericDevice"
+    attributes:
+      - name: role
+        kind: Dropdown
+        optional: true
+        choices:
+          - name: gslb
+            label: GSLB Loadbalancer
+            description: "GSLB Loadbalancer"
+            color: "#6a5acd"
+          - name: local
+            label: Local Loadbalancer
+            description: "Local Loadbalancer"
+            color: "#6a5acd"
