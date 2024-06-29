@@ -8,6 +8,7 @@ schemas:
   - models/routing.yml
   - models/security.yml
   - models/topology.yml
+  - models/console
 jinja2_transforms:
   - name: "device_cisco"
     description: "Template to generate startup configuration for Cisco devices"
@@ -45,23 +46,10 @@ check_definitions:
     file_path: "checks/check_backbone_link_redundancy.py"
 
 generator_definitions:
-  - name: update_upstream_interfaces_description
-    file_path: "generators/upstream_interfaces.py"
-    targets: upstream_interfaces
-    query: upstream_interfaces
+  - name: generate_topology
+    file_path: "generators/generate_topology.py"
+    targets: all_topologies
+    query: generate_topology
     parameters:
       id: "id"
 
-  - name: create_circuit_endpoints
-    file_path: "generators/circuit_endpoints.py"
-    targets: provisioning_circuits
-    query: circuit_endpoints
-    parameters:
-      circuit_id: "circuit_id__value"
-
-  - name: drained_circuit_bgp_sessions
-    file_path: "generators/drained_circuit_bgp_sessions.py"
-    targets: maintenance_circuits
-    query: drained_circuit_bgp_sessions
-    parameters:
-      circuit_id: "circuit_id__value"

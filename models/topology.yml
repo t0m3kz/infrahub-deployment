@@ -146,6 +146,30 @@ nodes:
         optional: true
         cardinality: many
         kind: Component
+      - name: management_network
+        peer: InfraPrefix
+        identifier: topology__management_network
+        optional: false
+        cardinality: one
+        kind: Component
+      - name: loopback_network
+        peer: InfraPrefix
+        identifier: topology__loopback_network
+        optional: false
+        cardinality: one
+        kind: Component
+      - name: data_network
+        peer: InfraPrefix
+        identifier: topology__data_network
+        optional: false
+        cardinality: one
+        kind: Component
+      - name: vtep_network
+        peer: InfraPrefix
+        identifier: topology__vtep_network
+        optional: true
+        cardinality: one
+        kind: Component
 
   # --------------------  Strategies  --------------------
   - name: MPLSStrategy

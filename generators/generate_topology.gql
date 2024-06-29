@@ -1,0 +1,82 @@
+query deploy_topology($id: ID){
+  TopologyTopology (ids: [$id]){
+    edges {
+      node {
+        id
+        name {
+          value
+        }
+        management_network {
+          node {
+            network_address {
+              value
+            }
+          }
+        }
+        strategy {
+          node {
+            name {
+              value
+            }
+          }
+        }
+        vtep_network {
+          node {
+            network_address {
+              value
+            }
+          }
+        }
+        loopback_network {
+          node {
+            network_address {
+              value
+            }
+          }
+        }
+        data_network {
+          node {
+            network_address {
+              value
+            }
+          }
+        }
+        elements {
+          edges {
+            node {
+              id
+              name {
+                value
+              }
+              quantity {
+                value
+              }
+              ... on TopologyPhysicalElement {
+                device_role {
+                  value
+                }
+                device_type {
+                  node {
+                    name {
+                      value
+                    }
+                  }
+                }
+                border {
+                  value
+                }
+              }
+            }
+          }
+        }
+        location {
+          node {
+            name {
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+}
